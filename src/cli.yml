@@ -1,0 +1,173 @@
+name: curve-tool
+version: "0.1.0"
+author: Gordon
+about: Used to verify the curve algorithm
+
+settings:
+    - ColoredHelp
+    - SubcommandRequired
+
+subcommands:
+    - calc_d:
+        about: 计算invariant D
+        args:
+            - amp:
+                short: a
+                help: 即A值,可从get_pool接口获取
+                takes_value: true
+                required: true
+            - c_amounts:
+                short: c
+                help: 池中各个token的可比精度余额
+                takes_value: true
+                required: true
+    - calc_y:
+        about: 计算Xtoken新值之下的Ytoken新值(保证 invariant D 不变)
+        args:
+            - amp:
+                short: a
+                help: 即A值,可从get_pool接口获取
+                takes_value: true
+                required: true
+            - x_c_amount:
+                short: x
+                help: Xtoken的新的可比精度余额
+                takes_value: true
+                required: true
+            - current_c_amounts:
+                short: c
+                help: 池中各个token的可比精度余额
+                takes_value: true
+                required: true
+            - index_x:
+                short: i
+                help: Xtoken index
+                takes_value: true
+                required: true
+            - index_y:
+                short: o
+                help: Ytoken index
+                takes_value: true
+                required: true
+    - calc_add_liquidity:
+        about: 计算添加流动性
+        args:
+            - amp:
+                short: a
+                help: 即A值,可从get_pool接口获取
+                takes_value: true
+                required: true
+            - deposit_c_amounts:
+                short: d
+                help: 冲入的各个token的可比精度余额
+                takes_value: true
+                required: true
+            - old_c_amounts:
+                short: o
+                help: 池中各个token的可比精度余额
+                takes_value: true
+                required: true
+            - pool_token_supply:
+                short: p
+                help: 当前总流动性
+                takes_value: true
+                required: true
+            - total_fee:
+                short: t
+                help: 费率
+                takes_value: true
+                required: true
+            - exchange_fee:
+                short: e
+                help: 费率
+                takes_value: true
+                required: true
+    - calc_remove_liquidity:
+        about: 计算按份额移除流动性
+        args:
+            - shares:
+                short: s
+                help: 待移除的流动性
+                takes_value: true
+                required: true
+            - c_amounts:
+                short: c
+                help: 池中各个token的可比精度余额
+                takes_value: true
+                required: true
+            - pool_token_supply:
+                short: o
+                help: 当前总流动性
+                takes_value: true
+                required: true
+    - calc_remove_liquidity_by_tokens:
+        about: 计算按token移除流动性
+        args:
+            - amp:
+                short: a
+                help: 即A值,可从get_pool接口获取
+                takes_value: true
+                required: true
+            - removed_c_amounts:
+                short: r
+                help: 待移除的各个token的可比精度余额
+                takes_value: true
+                required: true
+            - old_c_amounts:
+                short: o
+                help: 池中各个token的可比精度余额
+                takes_value: true
+                required: true
+            - pool_token_supply:
+                short: p
+                help: 当前总流动性
+                takes_value: true
+                required: true
+            - total_fee:
+                short: t
+                help: 费率
+                takes_value: true
+                required: true
+            - exchange_fee:
+                short: e
+                help: 费率
+                takes_value: true
+                required: true
+    - calc_swap:
+        about: 计算swap
+        args:
+            - amp:
+                short: a
+                help: 即A值,可从get_pool接口获取
+                takes_value: true
+                required: true
+            - in_token_idx:
+                short: x
+                help: 冲入的token的idx
+                takes_value: true
+                required: true
+            - in_c_amount:
+                short: c
+                help: 冲入的token的可比精度余额
+                takes_value: true
+                required: true
+            - out_token_idx:
+                short: y
+                help: 换出的token的idx
+                takes_value: true
+                required: true
+            - old_c_amounts:
+                short: o
+                help: 池中各个token的可比精度余额
+                takes_value: true
+                required: true
+            - total_fee:
+                short: t
+                help: 费率
+                takes_value: true
+                required: true
+            - exchange_fee:
+                short: e
+                help: 费率
+                takes_value: true
+                required: true
