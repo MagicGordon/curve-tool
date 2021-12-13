@@ -234,6 +234,7 @@ impl StableSwap {
                     new_balances[i].checked_sub(ideal_balance)?
                 };
                 let fee = fees.normalized_trade_fee(n_coins as u32, difference);
+                println!("fee {} : {}", i, fee);
                 new_balances[i] = new_balances[i].checked_sub(fee)?;
             }
 
@@ -354,6 +355,7 @@ impl StableSwap {
                     new_balances[i].checked_sub(ideal_balance)?
                 };
                 let fee = fees.normalized_trade_fee(n_coins as u32, difference);
+                println!("fee {} : {}", i, fee);
                 // new_balance is for calculation D2, the one with fee charged
                 new_balances[i] = new_balances[i].checked_sub(fee)?;
             }
